@@ -16,7 +16,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#click-button {
+#click-button, #save-button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -28,6 +28,15 @@ body {
     transition: background-color 0.3s;
 }
 
-#click-button:hover {
+#click-button:hover, #save-button:hover {
     background-color: #45a049;
+}
+
+#save-button {
+    background-color: #2196F3;
+    margin-left: 10px;
+}
+
+#save-button:hover {
+    background-color: #0b7dda;
 }
