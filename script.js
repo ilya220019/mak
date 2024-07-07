@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    const clickButton = document.getElementById('click-button');
-    const saveButton = document.getElementById('save-button');
+    const clickCircle = document.getElementById('click-circle');
     const clickCountDisplay = document.getElementById('click-count');
     let clickCount = localStorage.getItem('clickCount') || 0;
 
     clickCountDisplay.textContent = clickCount;
 
-    clickButton.addEventListener('click', () => {
+    clickCircle.addEventListener('click', () => {
         clickCount++;
         clickCountDisplay.textContent = clickCount;
         localStorage.setItem('clickCount', clickCount);
+        saveClickData(clickCount);
     });
 
-    saveButton.addEventListener('click', () => {
+    function saveClickData(clickCount) {
         const userCode = generateUniqueCode();
-        fetch('https://script.google.com/macros/s/AKfycbyQjf9lbZcMCcretYsg8WXrWXUfP7q9b3UTu9HRMz2RA3CahfHPa06oGWOC4Wq-nJQJ/exec', {
+        fetch('YOUR_WEB_APP_URL', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             body: JSON.stringify({ userCode, clickCount })
         })
         .then(response => response.text())
-        .then(data => alert(data))
+        .then(data => console.log(data))
         .catch(error => console.error('Ошибка:', error));
-    });
+    }
 
     function generateUniqueCode() {
         let code = '';
