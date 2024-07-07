@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     saveButton.addEventListener('click', () => {
         const userCode = generateUniqueCode();
-        fetch('YOUR_WEB_APP_URL', {
+        fetch('https://script.google.com/macros/s/AKfycbyQjf9lbZcMCcretYsg8WXrWXUfP7q9b3UTu9HRMz2RA3CahfHPa06oGWOC4Wq-nJQJ/exec', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
